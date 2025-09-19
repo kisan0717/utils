@@ -122,12 +122,12 @@ class util {
 
   static setPageColor(color) {
     let colstr = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-    document.getElementsByTagName('body')[0].style.backgroundColor = colstr; 
+    document.getElementsByTagName('body')[0].style.backgroundColor = colstr;
   }
 
   static colLerp(col1, col2, t) {
     let r = util.lerp(col1[0], col2[0], t);
-    let g = util.lerp(col1[1], col2[1], t); 
+    let g = util.lerp(col1[1], col2[1], t);
     let b = util.lerp(col1[2], col2[2], t);
 
     let newCol = [r, g, b];
@@ -146,4 +146,28 @@ class util {
       }
     }, 20);
   }
+
+  static increase(n) {
+    return n + 1;
+  }
+
+  static map(arr, mapFunc) {
+    for (let i = 0; i < arr.length; i++) {
+      arr[i] = mapFunc(arr[i]);
+    }
+    return arr;
+  }
+
+  static createCanvas(id, width, heigth, color) {
+    if (document.getElementById(id) !== null) return "already exist";
+
+    const canvas = document.createElement("canvas");
+    canvas.id = id;
+    canvas.width = width;
+    canvas.height = heigth;
+    canvas.style.backgroundColor = color;
+    // canvas.setAttribute("density", 10); used for own customization;
+    document.getElementsByTagName("body")[0].appendChild(canvas);
+  }
+
 }
