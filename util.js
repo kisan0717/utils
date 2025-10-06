@@ -169,5 +169,4 @@ class util {
     // canvas.setAttribute("density", 10); used for own customization;
     document.getElementsByTagName("body")[0].appendChild(canvas);
   }
-
 }
